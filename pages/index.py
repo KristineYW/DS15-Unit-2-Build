@@ -16,17 +16,16 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## See if the Supreme Court Justices would rule in your favor! 
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
 
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+            Ever wonder how you'd fare arguing your case in front of the highest court in the nation? 
+            
+            You can find out the probability of winning your case in front of the 9 Justices with just a few questions! 
 
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button("Let's predict!", color='primary'), href='/predictions')
     ],
     md=4,
 )
