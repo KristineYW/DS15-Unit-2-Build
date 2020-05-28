@@ -33,32 +33,32 @@ column1 = dbc.Col(
         dcc.Markdown('#### [Petitioner (Party or Entity)](heroku.com)', className='mt-1'),
         dcc.Input(
             id='petitioner',
-            placeholder=' Enter a value',
-            type='text',
+            placeholder=' Enter a number',
+            type='number',
             value=''
             ), 
         
         dcc.Markdown('#### [Respondent (Party or Entity)](heroku.com)', className='mt-3'),
         dcc.Input(
             id='respondent',
-            placeholder=' Enter a numeric value',
-            type='text',
+            placeholder=' Enter a number',
+            type='number',
             value=''
             ), 
               
         dcc.Markdown('#### [Case Source](heroku.com)', className='mt-3'),
         dcc.Input(
             id='caseSource',
-            placeholder=' Enter a numeric value',
-            type='text',
+            placeholder=' Enter a number',
+            type='number',
             value=''
             ), 
         
         dcc.Markdown('#### [Case Origin](heroku.com)', className='mt-3'),
         dcc.Input(
             id='caseOrigin',
-            placeholder=' Enter a numeric value',
-            type='text',
+            placeholder=' Enter a number',
+            type='number',
             value=''
             ), 
 
@@ -132,8 +132,8 @@ column1 = dbc.Col(
     dcc.Markdown('#### [Specific Issue](heroku.com)', className='mt-3'),
     dcc.Input(
         id='issue',
-        placeholder=' Enter a numeric value',
-        type='text',
+        placeholder=' Enter a number',
+        type='number',
         value=''
         ), 
 
@@ -157,8 +157,8 @@ column1 = dbc.Col(
     dcc.Markdown('#### [Specific Legal Provision](heroku.com)', className='mt-3'),
     dcc.Input(
         id='lawSupp',
-        placeholder=' Enter a numeric value',
-        type='float',
+        placeholder=' Enter a number',
+        type='number',
         value=''
         ), 
 

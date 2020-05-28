@@ -15,6 +15,7 @@ from app import app
 column1 = dbc.Col(
     [
         dcc.Markdown(
+
             """
         
             ## How does the Court decide?
