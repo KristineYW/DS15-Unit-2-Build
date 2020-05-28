@@ -6,6 +6,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
 
+
 # Imports from this application
 from app import app
 
@@ -16,16 +17,17 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## See if the Supreme Court Justices would rule in your favor! 
+            ## How does the Court decide?
 
 
-            Ever wonder how you'd fare arguing your case in front of the highest court in the nation? 
+            In the US, there is no higher court of authority than the Supreme Court. It has the power to overturn decades of precedence, its jurisdiction covering the over 330 million people of the US (and beyond, i.e. with regard to immigration and refugee policies). 
             
-            You can find out the probability of winning your case in front of the 9 Justices with just a few questions! 
+            Just 9 Justices wield this power at any given time. As such, it is vitally important to understand what factors could impact the ruling of the Court.
+            
 
             """
         ),
-        dcc.Link(dbc.Button("Let's predict!", color='primary'), href='/predictions')
+        dcc.Link(dbc.Button("Predict a Case", color='primary'), href='/predictions')
     ],
     md=4,
 )

@@ -7,13 +7,14 @@ from dash.dependencies import Input, Output
 
 # Imports from this application
 from app import app, server
-from pages import index, predictions, insights, process
+from pages import index, features, predictions, insights, process
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
-    brand='Would the Supreme Court rule in your favor?',
+    brand="""Our Supreme l̶e̶a̶d̶e̶r̶s Justices""",
     brand_href='/', 
     children=[
+        dbc.NavItem(dcc.Link('Features', href='/features', className='nav-link')), 
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
@@ -23,6 +24,7 @@ navbar = dbc.NavbarSimple(
     light=False, 
     dark=True
 )
+
 
 # Footer docs:
 # dbc.Container, dbc.Row, dbc.Col: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
@@ -66,6 +68,8 @@ app.layout = html.Div([
 def display_page(pathname):
     if pathname == '/':
         return index.layout
+    elif pathname == '/features':
+        return features.layout
     elif pathname == '/predictions':
         return predictions.layout
     elif pathname == '/insights':
@@ -77,4 +81,4 @@ def display_page(pathname):
 
 # Run app server: https://dash.plot.ly/getting-started
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True,port=8015)
