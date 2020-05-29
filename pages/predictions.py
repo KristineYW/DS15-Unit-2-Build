@@ -32,7 +32,7 @@ column1 = dbc.Col(
             className='mb-5'
         ),
 
-        dcc.Markdown('#### [Petitioner (Person or Entity)](heroku.com)', className='mt-1'),
+        dcc.Markdown('#### [Petitioner (Person or Entity)](https://ds15-unit2-build.herokuapp.com/features)', className='mt-1'),
         dcc.Input(
             id='petitioner',
             placeholder=' Enter a number',
@@ -40,7 +40,7 @@ column1 = dbc.Col(
             value=''
             ), 
         
-        dcc.Markdown('#### [Respondent (Person or Entity)](heroku.com)', className='mt-3'),
+        dcc.Markdown('#### [Respondent (Person or Entity)](https://ds15-unit2-build.herokuapp.com/features)', className='mt-3'),
         dcc.Input(
             id='respondent',
             placeholder=' Enter a number',
@@ -48,7 +48,7 @@ column1 = dbc.Col(
             value=''
             ), 
               
-        dcc.Markdown('#### [Case Source](heroku.com)', className='mt-3'),
+        dcc.Markdown('#### [Case Source](https://ds15-unit2-build.herokuapp.com/features)', className='mt-3'),
         dcc.Input(
             id='caseSource',
             placeholder=' Enter a number',
@@ -56,7 +56,7 @@ column1 = dbc.Col(
             value=''
             ), 
         
-        dcc.Markdown('#### [Case Origin](heroku.com)', className='mt-3'),
+        dcc.Markdown('#### [Case Origin](https://ds15-unit2-build.herokuapp.com/features)', className='mt-3'),
         dcc.Input(
             id='caseOrigin',
             placeholder=' Enter a number',
@@ -131,7 +131,7 @@ column1 = dbc.Col(
         ),
         dcc.Markdown("",id='out1'),
 
-    dcc.Markdown('#### [Specific Issue](heroku.com)', className='mt-3'),
+    dcc.Markdown('#### [Specific Issue](https://ds15-unit2-build.herokuapp.com/features)', className='mt-3'),
     dcc.Input(
         id='issue',
         placeholder=' Enter a number',
@@ -156,7 +156,7 @@ column1 = dbc.Col(
         value=''
         ),
 
-    dcc.Markdown('#### [Specific Legal Provision](heroku.com)', className='mt-3'),
+    dcc.Markdown('#### [Specific Legal Provision](https://ds15-unit2-build.herokuapp.com/features)', className='mt-3'),
     dcc.Input(
         id='lawSupp',
         placeholder=' Enter a number',
