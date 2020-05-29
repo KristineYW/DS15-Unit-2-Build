@@ -38,13 +38,7 @@ column1 = dbc.Col(
                 3) the political party of each Justice’s appointing President.
 
             Individual voting patterns aside, thankfully the associations were paltry when viewed from a holistic perspective. This indicates that as long as the Court remains relatively balanced in terms of liberal vs conservative inclinations, the cumulative votes for the cases should not be swayed one way or another by the Justices’ political leanings. 
-            """),
-        
-        html.Img(
-            src='assets/eli.png', className='mb-3'),
-        
-        dcc.Markdown(
-            """
+
             #### Transition to New Target 
             So what factors are the most important in a case that reaches the Court? What determines if it is the petitioner or the respondent that succeeds in swaying the Justices in their favor? In order to investigate this question, I changed the target of my predictive modeling from the political direction of each Justice’s vote to how the Court votes overall, namely whether the petitioner or the respondent would be the prevailing party on any given case presented to the Court. 
 
@@ -52,7 +46,7 @@ column1 = dbc.Col(
 
             #### Analysis
 
-            Three different types of models were applied to the data sets. All evaluation metrics used beat the baseline, some more drastically than others (RandomForestClassifier and XGBoost models reported accuracy scores over 90% while an AUC model yielded a test accuracy of only 80%). These findings indicate that with just a few pieces of information, the Supreme Court decision, whether in favor of the petitioner or respondent, is predictable. 
+            Three different types of classification models were applied to the data sets. All evaluation metrics used beat the baseline, some more drastically than others (RandomForestClassifier and XGBoost models reported accuracy scores over 90% while an AUC model yielded a test accuracy of only 80%). These findings indicate that with just a few pieces of information, the Supreme Court decision, whether in favor of the petitioner or respondent, is predictable. 
 
             """),
         
@@ -62,6 +56,22 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
             Further investigation into specific variables reveal that even within the top 10 features, certain features may be exponentially more important for predictive models than others. 
+            For instance, taken individually, the variables may have different levels of impact on which party wins before the Supreme Court.
+            """),
+        
+        html.Img(
+            src='assets/pdp.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
+            We can even take a look at how the variables interact in determining the predictive power of the models. 
+            """),
+        
+        html.Img(
+            src='assets/pdpinteract.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
 
             #### Conclusions and Caveats
             Since our model assumes a generally balanced Court, its predictive power may be limited when applied to a heavily skewed Court with an overwhelming majority of Justices that may lean toward one political ideology or another. 
