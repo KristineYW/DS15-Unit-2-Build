@@ -28,12 +28,18 @@ column1 = dbc.Col(
             """),
         
         html.Img(
-            src='assets/eli.png', className='mb-3'),
+            src='assets/data.png', className='mb-3'),
         
         dcc.Markdown(
             """
             As such, I changed my target from looking at individual voting directions to the outcome of the cases overall as defined by the winning party. After making feature importance and permutation importance charts, I had no choice but to drop the features I originally created. In order to avoid data leakage and be able to generalize to future predictions, I settled for the ten most relevant features that would be commonly presented to the Court by the time they consider a case, and eliminated any identifying features for the specific case or the natural Court (the specific 9 Justices sitting on the bench at any given time). 
-
+            """),
+        
+        html.Img(
+            src='assets/eli.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
             #### Baseline
 
             Since my target is binary, I chose to use classification methods for my predictive model. The majority class was the Petitioner with a rate of 61.8%, indicating that the petitioners who are able to bring their cases in front of the Supreme Court can be predicted to win 61.8% of the time, with no additional information or variables considered. The baseline for ROC AUC is 50%.
