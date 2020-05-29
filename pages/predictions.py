@@ -209,15 +209,13 @@ def predict(petitioner, respondent, caseSource, caseOrigin, certReason, lcDispos
         data=[[petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp]]
     )
 
-    # y_pred = pipeline.predict(df)
+    y_pred = pipeline.predict(df)
     # return f'{y_pred*100:.0f}% Probability'
 
-
-    y_pred = pipeline.predict(df)[0]
-    if y_pred >= '.5':
-        return html.Img(src='assets/Petitioner.png',className='img-fluid', style = {'height': '400px'})
+    if y_pred == '1.0':
+        return y_pred#, html.Img(src='assets/Petitioner.png',className='img-fluid', style = {'height': '400px'})
     else:
-        return html.Img(src='assets/Respondent.png',className='img-fluid', style = {'height': '400px'})
+        return y_pred#,html.Img(src='assets/Respondent.png',className='img-fluid', style = {'height': '400px'})
 
 
 def update_output_div(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):
