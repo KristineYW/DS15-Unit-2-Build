@@ -5,6 +5,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
+import base64
 
 
 # Imports from this application
@@ -33,14 +34,26 @@ column1 = dbc.Col(
     md=4,
 )
 
-gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+# gapminder = px.data.gapminder()
+# fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
+#            hover_name="country", log_x=True, size_max=60)
+home_image = './assets/SC_Gavel_Flag_Constitution.jpg' 
+encoded_image = base64.b64encode(open(home_image, 'rb').read())
+
+# column2 = dbc.Col(
+#     [
+#         # dcc.Graph(figure=fig),
+#         html.Div([
+#             html.Img(src=encoded_image)
+#         ])
+# ])
 
 column2 = dbc.Col(
     [
-        dcc.Graph(figure=fig),
+        html.Img(src='assets/SC_Gavel_Flag_Constitution.jpg', className='img-fluid')
     ]
 )
+
+
 
 layout = dbc.Row([column1, column2])

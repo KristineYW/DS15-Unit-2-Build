@@ -6,6 +6,8 @@ import dash_daq as daq
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from joblib import load
+import pandas as pd
+import numpy as np
 
 # Imports from this application
 from app import app
@@ -30,7 +32,7 @@ column1 = dbc.Col(
             className='mb-5'
         ),
 
-        dcc.Markdown('#### [Petitioner (Party or Entity)](heroku.com)', className='mt-1'),
+        dcc.Markdown('#### [Petitioner (Person or Entity)](heroku.com)', className='mt-1'),
         dcc.Input(
             id='petitioner',
             placeholder=' Enter a number',
@@ -38,7 +40,7 @@ column1 = dbc.Col(
             value=''
             ), 
         
-        dcc.Markdown('#### [Respondent (Party or Entity)](heroku.com)', className='mt-3'),
+        dcc.Markdown('#### [Respondent (Person or Entity)](heroku.com)', className='mt-3'),
         dcc.Input(
             id='respondent',
             placeholder=' Enter a number',
@@ -181,7 +183,8 @@ column2 = dbc.Col(
     ]
 )
 
-layout = dbc.Row([column1, column2])
+
+    
 
 @app.callback(
     Output(component_id='prediction-content', component_property='children'),
@@ -199,5 +202,24 @@ layout = dbc.Row([column1, column2])
         
         ]
 )
+
+def predict(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):
+    df=pd.to_Dataframe(
+        columns=['petitioner','respondent','caseSource','caseOrigin','certReason','lcDisposition','issueArea','issue','lawType','lawSupp'],
+        data=[[petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp]]
+    )
+
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f}% Probability'
+
+
+    # y_pred = pipeline.predict(df)[0]
+    # if y_pred == 'pass':
+    #     return html.Img(src='assets/Petitioner.jpeg',className='img-fluid', style = {'height': '400px'})
+    # else:
+    #     return html.Img(src='assets/Respondent.jpeg',className='img-fluid', style = {'height': '400px'})
+
+
 def update_output_div(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):
-    return ' '.join([petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp])
+    return f'{petitioner} {respondent} {caseSource} {caseOrigin} {certReason} {lcDisposition} {issueArea} {issue} {lawType} {lawSupp}'
+layout = dbc.Row([column1, column2])

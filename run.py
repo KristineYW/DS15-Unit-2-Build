@@ -11,7 +11,7 @@ from pages import index, features, predictions, insights, process
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
-    brand="""Our Supreme L̶E̶A̶D̶E̶R̶S̶ Justices""",
+    brand="""Our Supreme Justices""",
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Features', href='/features', className='nav-link')), 
