@@ -24,7 +24,7 @@ column1 = dbc.Col(
 
             In the US, there is no higher court of authority than the Supreme Court. It has the power to overturn decades of precedence, its jurisdiction covering the over 330 million people of the US (and beyond, i.e. with regard to immigration and refugee policies). 
             
-            Just 9 Justices wield this power at any given time. As such, it is vitally important to understand what factors could impact the ruling of the Court.
+            Just 9 Justices wield this power at any given moment. As such, it is vitally important to understand what factors could impact the ruling of the Court. Are they affected by their personal political beliefs? If not, then what do they actually consider?
             
 
             """
