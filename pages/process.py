@@ -45,7 +45,13 @@ column1 = dbc.Col(
             Since my target is binary, I chose to use classification methods for my predictive model. The majority class was the Petitioner with a rate of 61.8%, indicating that the petitioners who are able to bring their cases in front of the Supreme Court can be predicted to win 61.8% of the time, with no additional information or variables considered. The baseline for ROC AUC is 50%.
 
             #### Training Models & Model Performance
-
+            """),
+        
+        html.Img(
+            src='assets/con_mat.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
             After splitting my main dataset into training, validation, and test sets, I trained four different models on my training data. 
 
             As expected, all classification models outperformed the logistic regression model I fit to the training data. I made basic pipelines with a few hyperparameters using the different classifiers. Surprisingly, Random Forest Classification (98%) performed better than XGBoost (85%), and ROC AUC yielded the lowest accuracy (80%) of the classification models. This indicates that all else being equal, the features I chose to create my training, validation, and testing sets are capable of performing much better than random guessing. 
