@@ -25,6 +25,13 @@ column1 = dbc.Col(
 
             My original area of interest was to determine if Justices are truly neutral and unpartisan in their voting patterns. A cursory look at just the ‘directions’ of the total number of votes per Justice reveals that with some variation, most Justices do indeed vote in line with a liberal or conservative bias. Since the dataset did not contain any information with regard to the political leanings of the Justices and the public data on the topic is also scarce, I chose to create and use three new objective features as clues to what their political leanings might be. However, when considered as a team, Courts do not vote with a general tendency toward one direction, and the total directionality of the votes is close to being split down the middle.  
 
+            """),
+        
+        html.Img(
+            src='assets/eli.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
             As such, I changed my target from looking at individual voting directions to the outcome of the cases overall as defined by the winning party. After making feature importance and permutation importance charts, I had no choice but to drop the features I originally created. In order to avoid data leakage and be able to generalize to future predictions, I settled for the ten most relevant features that would be commonly presented to the Court by the time they consider a case, and eliminated any identifying features for the specific case or the natural Court (the specific 9 Justices sitting on the bench at any given time). 
 
             #### Baseline
