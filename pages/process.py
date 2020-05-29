@@ -16,7 +16,7 @@ column1 = dbc.Col(
             """
         
             ## Process
-            
+
             #### Dataset
 
             I chose a dataset provided by Washington University Law, available at http://scdb.wustl.edu/index.php. It contained over 120,000 observations, broken down by each individual Justice’s vote on a case since 1946. 
