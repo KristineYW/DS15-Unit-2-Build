@@ -173,12 +173,12 @@ column2 = dbc.Col(
         html.H2('Predicted Prevailing Party', className='mb-3'),
         html.Div(id='prediction-content', className='lead'),
 
-        daq.Gauge(
-            id='my-daq-gauge',
-            max=100,
-            value=50,
-            min=0
-        ),
+        # daq.Gauge(
+        #     id='my-daq-gauge',
+        #     max=100,
+        #     value=50,
+        #     min=0
+        # ),
 
     ]
 )
@@ -204,20 +204,20 @@ column2 = dbc.Col(
 )
 
 def predict(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):
-    df=pd.to_Dataframe(
+    df = pd.DataFrame(
         columns=['petitioner','respondent','caseSource','caseOrigin','certReason','lcDisposition','issueArea','issue','lawType','lawSupp'],
         data=[[petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp]]
     )
 
+    # y_pred = pipeline.predict(df)
+    # return f'{y_pred*100:.0f}% Probability'
+
+
     y_pred = pipeline.predict(df)[0]
-    return f'{y_pred:.0f}% Probability'
-
-
-    # y_pred = pipeline.predict(df)[0]
-    # if y_pred == 'pass':
-    #     return html.Img(src='assets/Petitioner.jpeg',className='img-fluid', style = {'height': '400px'})
-    # else:
-    #     return html.Img(src='assets/Respondent.jpeg',className='img-fluid', style = {'height': '400px'})
+    if y_pred >= '.5':
+        return html.Img(src='assets/Petitioner.png',className='img-fluid', style = {'height': '400px'})
+    else:
+        return html.Img(src='assets/Respondent.png',className='img-fluid', style = {'height': '400px'})
 
 
 def update_output_div(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):

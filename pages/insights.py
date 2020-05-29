@@ -54,6 +54,13 @@ column1 = dbc.Col(
 
             Three different types of models were applied to the data sets. All evaluation metrics used beat the baseline, some more drastically than others (RandomForestClassifier and XGBoost models reported accuracy scores over 90% while an AUC model yielded a test accuracy of only 80%). These findings indicate that with just a few pieces of information, the Supreme Court decision, whether in favor of the petitioner or respondent, is predictable. 
 
+            """),
+        
+        html.Img(
+            src='assets/con_mat.png', className='mb-3'),
+        
+        dcc.Markdown(
+            """
             Further investigation into specific variables reveal that even within the top 10 features, certain features may be exponentially more important for predictive models than others. 
 
             #### Conclusions and Caveats
