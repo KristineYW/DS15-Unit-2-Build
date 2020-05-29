@@ -4,9 +4,62 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import plotly.graph_objects as go
 
 # Imports from this application
 from app import app
+
+
+court = ['C1301','C1303','C1401','C1402','C1403',
+         'C1404','C1405','C1406','C1407','C1408',
+         'C1409','C1410','C1411','C1501','C1502',
+         'C1503','C1504','C1505','C1506','C1507',
+         'C1601','C1602','C1603','C1604','C1605',
+         'C1606','C1607','C1701','C1702','C1703',
+         'C1704','C1705','C1706','C1707']
+
+fig = go.Figure()
+fig.add_trace(go.Bar(x=court,
+                y=[3537,2466,576,360,1323,
+                  322,2138,3546,634,4696,
+                  2502,2988,424,624,1269,
+                  154,4158,40,5723,4806,
+                  1260,88,2709,647,1387,
+                  459,5603,153,1376,513,
+                  2259,464,567,342],
+                name='Liberal',
+                marker_color='rgb(0,0,255)'
+                ))
+fig.add_trace(go.Bar(x=court,
+                y=[2817,3752,729,168,657,
+                   258,1258,2601,152,1557,
+                   1539,1476,144,623,1179,
+                   140,4671,72,7506,6381,
+                   1278,192,2853,756,1742,
+                   756,6626,135,1914,531,
+                   2250,336,693,351],
+                name='Conservative',
+                marker_color='rgb(255,0,0)'
+                ))
+
+fig.update_layout(
+    title='Total Liberal/Conservative Votes by Natural Court',
+    xaxis_tickfont_size=14,
+    yaxis=dict(
+        title='',
+        titlefont_size=16,
+        tickfont_size=14,
+    ),
+    legend=dict(
+        x=0,
+        y=1.0,
+        bgcolor='rgb(255, 255, 255, 0)',
+        bordercolor='rgb(255, 255, 255, 0)'
+    ),
+    barmode='group',
+    bargap=0.1, 
+    bargroupgap=0.2
+)
 
 # 1 column layout
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
@@ -38,7 +91,10 @@ column1 = dbc.Col(
                 3) the political party of each Justice’s appointing President.
 
             Individual voting patterns aside, thankfully the associations were paltry when viewed from a holistic perspective. This indicates that as long as the Court remains relatively balanced in terms of liberal vs conservative inclinations, the cumulative votes for the cases should not be swayed one way or another by the Justices’ political leanings. 
-
+        
+        dcc.Graph(figure=fig), 
+        
+        dcc.Markdown(
             #### Transition to New Target 
             So what factors are the most important in a case that reaches the Court? What determines if it is the petitioner or the respondent that succeeds in swaying the Justices in their favor? In order to investigate this question, I changed the target of my predictive modeling from the political direction of each Justice’s vote to how the Court votes overall, namely whether the petitioner or the respondent would be the prevailing party on any given case presented to the Court. 
 
