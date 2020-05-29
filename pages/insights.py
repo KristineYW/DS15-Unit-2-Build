@@ -46,7 +46,7 @@ fig.update_layout(
     title='Total Liberal/Conservative Votes by Natural Court',
     xaxis_tickfont_size=14,
     yaxis=dict(
-        title='',
+        title='Number of Votes',
         titlefont_size=16,
         tickfont_size=14,
     ),
@@ -59,6 +59,61 @@ fig.update_layout(
     barmode='group',
     bargap=0.1, 
     bargroupgap=0.2
+)
+
+justices = ['Kavanaugh ', 'Gorsuch ', 'Alito ', 'Whittaker ', 'Minton ', 
+         'Kagan ','Goldberg ','Jackson ','Murphy ','Rutledge ',
+         'Roberts ','Sotomayor ','Fortas ','Vinson ','Reed ',
+         'Thomas ','Burton ','Frankfurter ','Scalia ','Souter ', 
+         'Burger ', 'Powell ', 'Harlan2 ', 'Kennedy ', 'Breyer ',
+         'OConnor ','Clark ','Ginsburg ','Rehnquist ','Warren ',
+         'Stewart ','Blackmun ','White ','Stevens ','Black ',
+         'Marshall ','Douglas ','Brennan ']
+
+fig2 = go.Figure()
+fig2.add_trace(go.Bar(x=justices,
+                y=[27,59,434,435,457,
+                   466,512,515,528,535,
+                   540,581,581,611,791,
+                   949,980,1305,1309,1384,
+                   1426,1449,1450,1544,1555,
+                   1581,1707,1749,1895,2377,
+                   2621,2846,3474,3612,3646,
+                   3869,4551,5526
+                  ],
+                name='Liberal',
+                marker_color='rgb(0,0,255)'
+                ))
+fig2.add_trace(go.Bar(x=justices,
+                y=[43,114,824,545,613,
+                   293,162,862,157,163,
+                   768,255,328,767,1049,
+                   2154,1270,1525,2591,977,
+                   2677,2205,1951,2200,1089,
+                   2523,1562,1058,4547,890,
+                   2657,2575,3725,2316,1414,
+                   1515,1265,2311],
+                name='Conservative',
+                marker_color='rgb(255,0,0)'
+                ))
+
+fig2.update_layout(
+    title='Total Liberal/Conservative Vote by Individual Justices',
+    xaxis_tickfont_size=14,
+    yaxis=dict(
+        title='Number of Votes',
+        titlefont_size=16,
+        tickfont_size=14,
+    ),
+    legend=dict(
+        x=0,
+        y=1.0,
+        bgcolor='rgba(255, 255, 255, 0)',
+        bordercolor='rgba(255, 255, 255, 0)'
+    ),
+    barmode='group',
+    bargap=0.1, 
+    bargroupgap=0.2 
 )
 
 # 1 column layout
@@ -79,9 +134,7 @@ column1 = dbc.Col(
 
             """),
         
-        html.Img(
-            src='assets/votes.png', className='img-fluid'
-            ),
+        dcc.Graph(figure=fig2), 
         
         dcc.Markdown(
             """
