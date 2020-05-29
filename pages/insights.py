@@ -91,10 +91,13 @@ column1 = dbc.Col(
                 3) the political party of each Justice’s appointing President.
 
             Individual voting patterns aside, thankfully the associations were paltry when viewed from a holistic perspective. This indicates that as long as the Court remains relatively balanced in terms of liberal vs conservative inclinations, the cumulative votes for the cases should not be swayed one way or another by the Justices’ political leanings. 
-        
+  
+            """),      
+
         dcc.Graph(figure=fig), 
         
         dcc.Markdown(
+            """
             #### Transition to New Target 
             So what factors are the most important in a case that reaches the Court? What determines if it is the petitioner or the respondent that succeeds in swaying the Justices in their favor? In order to investigate this question, I changed the target of my predictive modeling from the political direction of each Justice’s vote to how the Court votes overall, namely whether the petitioner or the respondent would be the prevailing party on any given case presented to the Court. 
 
