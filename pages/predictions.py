@@ -13,7 +13,7 @@ import numpy as np
 from app import app
 
 #Load pipeline
-pipeline = load('assets/pipeline.joblib')
+pipeline = load('pipeline.joblib')
 
 # 2 column layout. 1st column width = 4/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
@@ -143,7 +143,7 @@ column1 = dbc.Col(
     dcc.Dropdown(
         id='lawType',
         options=[
-            {'label': '1 - Constitution', 'value': '1.0'},
+            {'label': '1 - Constitution', 'value': 1.0},
             {'label': '2 - Constitutional Amendment', 'value': '2.0'},
             {'label': '3 - Federal statute', 'value': '3.0'},
             {'label': '4 - Court rules', 'value': '4.0'},
@@ -213,9 +213,9 @@ def predict(petitioner, respondent, caseSource, caseOrigin, certReason, lcDispos
     # return f'{y_pred*100:.0f}% Probability'
 
     if y_pred == '1.0':
-        return y_pred#, html.Img(src='assets/Petitioner.png',className='img-fluid', style = {'height': '400px'})
+        return html.Img(src='assets/Petitioner.png',className='img-fluid', style = {'height': '400px'})
     else:
-        return y_pred#,html.Img(src='assets/Respondent.png',className='img-fluid', style = {'height': '400px'})
+        return html.Img(src='assets/Respondent.png',className='img-fluid', style = {'height': '400px'})
 
 
 def update_output_div(petitioner, respondent, caseSource, caseOrigin, certReason, lcDisposition, issueArea, issue, lawType, lawSupp):
