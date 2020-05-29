@@ -68,7 +68,7 @@ column1 = dbc.Col(
             """),
         
         html.Img(
-            src='assets/pdpinteract.png', className='mb-3'),
+            src='assets/interact.png', className='mb-3'),
         
         dcc.Markdown(
             """
