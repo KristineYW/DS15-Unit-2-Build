@@ -98,7 +98,7 @@ fig2.add_trace(go.Bar(x=justices,
                 ))
 
 fig2.update_layout(
-    title='Total Liberal/Conservative Vote by Individual Justices',
+    title='Total Liberal/Conservative Votes by Individual Justices',
     xaxis_tickfont_size=14,
     yaxis=dict(
         title='Number of Votes',
@@ -108,8 +108,8 @@ fig2.update_layout(
     legend=dict(
         x=0,
         y=1.0,
-        bgcolor='rgba(255, 255, 255, 0)',
-        bordercolor='rgba(255, 255, 255, 0)'
+        bgcolor='rgb(255, 255, 255, 0)',
+        bordercolor='rgb(255, 255, 255, 0)'
     ),
     barmode='group',
     bargap=0.1, 
